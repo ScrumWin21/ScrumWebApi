@@ -10,4 +10,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ScrumWin21WebAPI.DAL\ScrumWin21WebAPI.DAL.csproj" />
+  </ItemGroup>
+
 </Project>
