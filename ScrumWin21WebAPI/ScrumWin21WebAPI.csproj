@@ -14,4 +14,8 @@
     <ProjectReference Include="..\ScrumWin21WebAPI.DAL\ScrumWin21WebAPI.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\DisplayModels\" />
+  </ItemGroup>
+
 </Project>

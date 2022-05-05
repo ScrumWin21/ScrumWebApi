@@ -1,6 +1,6 @@
 ﻿namespace ScrumWin21WebAPI.Models
 {
-    public class UserModel
+    public class UserCreateModel
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }

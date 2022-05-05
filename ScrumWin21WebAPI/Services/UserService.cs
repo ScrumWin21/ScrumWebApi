@@ -6,7 +6,7 @@ namespace ScrumWin21WebAPI.Services
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserModel>> GetUsersAsync();
+        Task<IEnumerable<UserCreateModel>> GetUsersAsync();
     }
     public class UserService : IUserService
     {
@@ -16,14 +16,14 @@ namespace ScrumWin21WebAPI.Services
             _dataAccessLayer = dataAccessLayer;
         }
 
-        public async Task<IEnumerable<UserModel>> GetUsersAsync()
+        public async Task<IEnumerable<UserCreateModel>> GetUsersAsync()
         {
-            var userModelList = new List<UserModel>();
+            var userModelList = new List<UserCreateModel>();
             var userEntityList = await _dataAccessLayer.GetUsersAsync();
 
             foreach (var userEntity in userEntityList)
             {
-                UserModel userModel = new UserModel
+                UserCreateModel userModel = new UserCreateModel
                 {
                     FirstName = userEntity.FirstName,
                     LastName = userEntity.LastName,

@@ -18,7 +18,7 @@ namespace ScrumWin21WebAPI.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public async Task<IEnumerable<UserModel>> GetUsersAsync()
+        public async Task<IEnumerable<UserCreateModel>> GetUsersAsync()
         {
             return await _userService.GetUsersAsync();
         }
