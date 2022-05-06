@@ -1,12 +1,13 @@
 ﻿using ScrumWin21WebAPI.DAL.Data.Entities;
 using ScrumWin21WebAPI.DAL;
-using ScrumWin21WebAPI.Models;
+using ScrumWin21WebAPI.Models.DisplayModels;
 
 namespace ScrumWin21WebAPI.Services
 {
     public interface IUserService
     {
-        Task<IEnumerable<UserCreateModel>> GetUsersAsync();
+        Task<IEnumerable<UserDisplayModel>> GetUsersAsync();
+        Task<UserDisplayModel> GetUserByIdAsync(int id);
     }
     public class UserService : IUserService
     {
@@ -16,14 +17,14 @@ namespace ScrumWin21WebAPI.Services
             _dataAccessLayer = dataAccessLayer;
         }
 
-        public async Task<IEnumerable<UserCreateModel>> GetUsersAsync()
+        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync()
         {
-            var userModelList = new List<UserCreateModel>();
+            var userModelList = new List<UserDisplayModel>();
             var userEntityList = await _dataAccessLayer.GetUsersAsync();
 
             foreach (var userEntity in userEntityList)
             {
-                UserCreateModel userModel = new UserCreateModel
+                UserDisplayModel userModel = new UserDisplayModel
                 {
                     FirstName = userEntity.FirstName,
                     LastName = userEntity.LastName,
@@ -32,6 +33,11 @@ namespace ScrumWin21WebAPI.Services
                 userModelList.Add(userModel);
             }
             return userModelList;
+        }
+
+        public async Task<UserDisplayModel> GetUserByIdAsync(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

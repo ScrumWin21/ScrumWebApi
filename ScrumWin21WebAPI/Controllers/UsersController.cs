@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ScrumWin21WebAPI.Models;
+using ScrumWin21WebAPI.Models.DisplayModels;
 using ScrumWin21WebAPI.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -18,21 +19,21 @@ namespace ScrumWin21WebAPI.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public async Task<IEnumerable<UserCreateModel>> GetUsersAsync()
+        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync()
         {
             return await _userService.GetUsersAsync();
         }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<UserDisplayModel> GetUserByIdAsync(int id)
         {
-            return "value";
+            return await _userService.GetUserByIdAsync(id);
         }
 
         // POST api/<UsersController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async void Post([FromBody] string value)
         {
         }
 
