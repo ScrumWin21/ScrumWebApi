@@ -8,6 +8,6 @@ namespace ScrumWin21WebAPI.DAL.Data.Entities
 {
     public class OrderEntity
     {
-
+        public int Id { get; set; }
     }
 }
