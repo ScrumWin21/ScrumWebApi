@@ -27,7 +27,7 @@ namespace ScrumWin21WebAPI.DAL.Data.Entities
 
 
         public int RoleId { get; set; }
-        public Role Role { get; set; } = null!;
+        public RoleEntity Role { get; set; } = null!;
 
         public int AddressId { get; set; }
         public AddressEntity Address { get; set; } = null!;

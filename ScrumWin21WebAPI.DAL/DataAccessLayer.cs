@@ -11,11 +11,29 @@ namespace ScrumWin21WebAPI.DAL
 {
     public interface IDataAccessLayer
     {
+        #region Users
         Task<IEnumerable<UserEntity>> GetUsersAsync();
-        Task GetUsersByIdAsync();
-        Task CreateUserAsync();
-        Task UpdateUserAsync();
-        Task DeleteUserAsync();
+        Task<UserEntity> GetUserByIdAsync();
+        Task<UserEntity> CreateUserAsync();
+        Task<UserEntity> UpdateUserAsync();
+        Task<bool> DeleteUserAsync();
+        #endregion
+
+        #region Products
+        Task<ProductEntity> GetProductsAsync();
+        Task<ProductEntity> GetProductByIdAsync();
+        Task<ProductEntity> CreateProductAsync();
+        Task<ProductEntity> UpdateProductAsync();
+        Task<bool> DeleteProductAsync();
+        #endregion
+
+        #region Orders
+        Task<OrderEntity> GetOrdersAsync();
+        Task<OrderEntity> GetOrderByIdAsync();
+        Task<OrderEntity> CreateOrderAsync();
+        Task<OrderEntity> UpdateOrderAsync();
+        Task<bool> DeleteOrderAsync();
+        #endregion
     }
     public class DataAccessLayer : IDataAccessLayer
     {
@@ -25,27 +43,83 @@ namespace ScrumWin21WebAPI.DAL
             _context = context;
         }
 
+        #region Users
         public async Task<IEnumerable<UserEntity>> GetUsersAsync() =>
             await _context.Users.ToListAsync();
 
-        public Task GetUsersByIdAsync()
+        public Task<UserEntity> GetUserByIdAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task CreateUserAsync()
+        public Task<UserEntity> CreateUserAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task UpdateUserAsync()
+        public Task<UserEntity> UpdateUserAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteUserAsync()
+        public Task<bool> DeleteUserAsync()
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region Products
+        public Task<ProductEntity> GetProductsAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductEntity> GetProductByIdAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductEntity> CreateProductAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ProductEntity> UpdateProductAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteProductAsync()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Orders
+        public Task<OrderEntity> GetOrdersAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OrderEntity> GetOrderByIdAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OrderEntity> CreateOrderAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<OrderEntity> UpdateOrderAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<bool> DeleteOrderAsync()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

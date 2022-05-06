@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ScrumWin21WebAPI.DAL.Data.Entities
 {
-    public class Role
+    public class RoleEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; } = null!;
     }
 }
