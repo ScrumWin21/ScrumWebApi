@@ -1,4 +1,5 @@
-﻿using ScrumWin21WebAPI.BLL.Models;
+﻿using ScrumWin21WebAPI.BLL.Interfaces;
+using ScrumWin21WebAPI.BLL.Models;
 using ScrumWin21WebAPI.DAL.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -8,29 +9,51 @@ using System.Threading.Tasks;
 
 namespace ScrumWin21WebAPI.BLL.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        public bool ValidUser(UserDisplayModel model)
-        {
-            if (model == null)
-                return false;
-            else return true;
-        }
         public UserEntity ConvertToEntity(UserDisplayModel model)
         {
-            UserEntity userEntity = new()
+            return new UserEntity()
             {
                 FirstName = model.FirstName,
                 LastName = model.LastName,
-                Email = model.Email,
+                Email = model.Email
             };
-            return userEntity;
         }
-        public bool ValidConversion(UserEntity entity)
+
+        public UserDisplayModel ConvertToModel(UserEntity entity)
         {
-            if (entity == null)
+            return new UserDisplayModel()
+            {
+                FirstName = entity.FirstName,
+                LastName = entity.LastName,
+                Email = entity.Email
+            };
+        }
+
+        public List<UserDisplayModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList)
+        {
+            List<UserDisplayModel> modelList = new List<UserDisplayModel>();
+            foreach (var entity in entitiesList)
+                modelList.Add(ConvertToModel(entity));
+
+            return modelList;
+        }
+
+        public bool ValidateEntity(UserEntity entity)
+        {
+            if(entity == null)
                 return false;
-            else return true;
+            else
+                return true;
+        }
+
+        public bool ValidateModel(UserDisplayModel modelToConvert)
+        {
+            if (modelToConvert == null)
+                return false;
+            else
+                return true;
         }
     }
 }

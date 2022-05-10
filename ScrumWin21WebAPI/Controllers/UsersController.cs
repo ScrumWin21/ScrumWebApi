@@ -16,17 +16,13 @@ namespace ScrumWin21WebAPI.Controllers
 
         // GET: api/<UsersController>
         [HttpGet]
-        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync()
-        {
-            return new List<UserDisplayModel>();
-        }
+        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync() =>
+            await _bll.GetUsersAsync();
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        public async Task<UserDisplayModel> Get(int id) =>
+            await _bll.GetUserByIdAsync(id);
 
         // POST api/<UsersController>
         [HttpPost]

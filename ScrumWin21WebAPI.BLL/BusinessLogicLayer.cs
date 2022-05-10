@@ -1,5 +1,5 @@
-﻿using ScrumWin21WebAPI.BLL.Models;
-using ScrumWin21WebAPI.BLL.Services;
+﻿using ScrumWin21WebAPI.BLL.Interfaces;
+using ScrumWin21WebAPI.BLL.Models;
 using ScrumWin21WebAPI.DAL;
 using System;
 using System.Collections.Generic;
@@ -11,18 +11,38 @@ namespace ScrumWin21WebAPI.BLL
 {
     public class BusinessLogicLayer
     {
-        private readonly UserService _userService;
-        private readonly DataAccessLayer _dll;
-        public BusinessLogicLayer(UserService userService, DataAccessLayer dll)
+        private readonly IUserService _userService;
+        private readonly IProductService _productService;
+        private readonly IOrderService _orderService;
+        private readonly DataAccessLayer _dal;
+        public BusinessLogicLayer(IUserService userService, IProductService productService, IOrderService orderService, DataAccessLayer dal)
         {
             _userService = userService;
-            _dll = dll;
+            _productService = productService;
+            _orderService = orderService;
+            _dal = dal;
         }
 
         #region Users
-        public async Task<UserDisplayModel> GetUsersAsync()
+        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync() =>
+            _userService.ConvertToModelList(await _dal.GetUsersAsync());
+
+        public async Task<UserDisplayModel> GetUserByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var userEntity = await _dal.GetUserByIdAsync(id);
+            if (_userService.ValidateEntity(userEntity))
+            {
+                var userModel = _userService.ConvertToModel(userEntity);
+                if(_userService.ValidateModel(userModel))
+                    return userModel;
+            }
+            
+            return new UserDisplayModel();
+        }
+
+        public async Task<UserDisplayModel> CreateUserAsync()
+        {
+            return new UserDisplayModel();
         }
         #endregion
 

@@ -13,7 +13,7 @@ namespace ScrumWin21WebAPI.DAL
     {
         #region Users
         Task<IEnumerable<UserEntity>> GetUsersAsync();
-        Task<UserEntity> GetUserByIdAsync();
+        Task<UserEntity> GetUserByIdAsync(int id);
         Task<UserEntity> CreateUserAsync();
         Task<UserEntity> UpdateUserAsync();
         Task<bool> DeleteUserAsync();
@@ -47,10 +47,8 @@ namespace ScrumWin21WebAPI.DAL
         public async Task<IEnumerable<UserEntity>> GetUsersAsync() =>
             await _context.Users.ToListAsync();
 
-        public Task<UserEntity> GetUserByIdAsync()
-        {
-            throw new NotImplementedException();
-        }
+        public async Task<UserEntity> GetUserByIdAsync(int id) =>
+            await _context.Users.FindAsync(id);
 
         public Task<UserEntity> CreateUserAsync()
         {
