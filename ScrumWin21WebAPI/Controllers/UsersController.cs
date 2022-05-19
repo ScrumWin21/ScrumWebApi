@@ -1,6 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ScrumWin21WebAPI.BLL;
-using ScrumWin21WebAPI.BLL.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -10,19 +8,19 @@ namespace ScrumWin21WebAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly BusinessLogicLayer _bll;
-        public UsersController(BusinessLogicLayer bll) =>
-            _bll = bll;
-
         // GET: api/<UsersController>
         [HttpGet]
-        public async Task<IEnumerable<UserDisplayModel>> GetUsersAsync() =>
-            await _bll.GetUsersAsync();
+        public IEnumerable<string> Get()
+        {
+            return new string[] { "value1", "value2" };
+        }
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public async Task<UserDisplayModel> GetUserByIdAsync(int id) =>
-            await _bll.GetUserByIdAsync(id);
+        public string Get(int id)
+        {
+            return "value";
+        }
 
         // POST api/<UsersController>
         [HttpPost]
