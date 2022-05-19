@@ -21,7 +21,7 @@ namespace ScrumWin21WebAPI.Controllers
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public async Task<UserDisplayModel> Get(int id) =>
+        public async Task<UserDisplayModel> GetUserByIdAsync(int id) =>
             await _bll.GetUserByIdAsync(id);
 
         // POST api/<UsersController>
