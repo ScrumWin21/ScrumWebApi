@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumWin21WebAPI", "ScrumWi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumWin21WebAPI.DAL", "ScrumWin21WebAPI.DAL\ScrumWin21WebAPI.DAL.csproj", "{108442AF-9C37-407E-A406-DEEB18809658}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumWin21WebAPI.BLL", "ScrumWin21WebAPI.BLL\ScrumWin21WebAPI.BLL.csproj", "{F6A7C589-70A7-4FC2-B342-0D44C11F475F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScrumWin21WebAPI.BLL", "ScrumWin21WebAPI.BLL\ScrumWin21WebAPI.BLL.csproj", "{F6A7C589-70A7-4FC2-B342-0D44C11F475F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumWin21WebAPI.Tests", "ScrumWin21WebAPI.Tests\ScrumWin21WebAPI.Tests.csproj", "{685B60F6-5670-4A94-9B7E-F5AEBA260DEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{F6A7C589-70A7-4FC2-B342-0D44C11F475F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6A7C589-70A7-4FC2-B342-0D44C11F475F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6A7C589-70A7-4FC2-B342-0D44C11F475F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{685B60F6-5670-4A94-9B7E-F5AEBA260DEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{685B60F6-5670-4A94-9B7E-F5AEBA260DEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{685B60F6-5670-4A94-9B7E-F5AEBA260DEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{685B60F6-5670-4A94-9B7E-F5AEBA260DEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
