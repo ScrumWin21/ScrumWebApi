@@ -28,6 +28,10 @@ namespace ScrumWin21WebAPI.DAL
 
             else return false;
         }
+
+        public async Task<IEnumerable<UserEntity>> GetAllAsync() =>
+            await _context.Users.ToListAsync();
+
         #endregion
     }
 }

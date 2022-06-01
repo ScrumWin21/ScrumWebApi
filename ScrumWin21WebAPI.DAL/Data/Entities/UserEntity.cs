@@ -18,11 +18,11 @@ namespace ScrumWin21WebAPI.DAL.Data.Entities
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string Username { get; set; } = null!;
+        public string Username { get; set; }
 
         [Required]
         [Column(TypeName = "varchar(100)")]
-        public string Email { get; set; } = null!;
+        public string Email { get; set; }
 
 
 

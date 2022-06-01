@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ScrumWin21WebAPI.BLL;
+using ScrumWin21WebAPI.BLL.Interfaces;
 using ScrumWin21WebAPI.BLL.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,8 +11,8 @@ namespace ScrumWin21WebAPI.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly BusinessLogicLayer _bll;
-        public UsersController(BusinessLogicLayer bll)
+        private readonly IBusinessLogicLayer _bll;
+        public UsersController(IBusinessLogicLayer bll)
         {
             _bll = bll;
         }
@@ -33,9 +34,10 @@ namespace ScrumWin21WebAPI.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public async Task CreateUserAsync(UserModel newUser)
+        public async Task<string> CreateUserAsync(UserModel newUser)
         {
-            throw new NotImplementedException();
+            var success = await _bll.CreateAsync(newUser);
+            return success.Item1;
         }
 
         // PUT api/<UsersController>/5

@@ -13,12 +13,26 @@ namespace ScrumWin21WebAPI.BLL.Services
     {
         public UserEntity ConvertToEntity(UserModel model)
         {
-            throw new NotImplementedException();
+            var newEntity = new UserEntity
+            {
+                Username = model.Username,
+                Email = model.Email,
+            };
+            if(!string.IsNullOrEmpty(model.Password))
+                newEntity.EncryptPassword(model.Password);
+
+            return newEntity;
         }
 
         public UserModel ConvertToModel(UserEntity entity)
         {
-            throw new NotImplementedException();
+            var newModel = new UserModel
+            {
+                Username = entity.Username,
+                Email = entity.Email,
+            };
+
+            return newModel;
         }
 
         public List<UserModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList)
@@ -26,9 +40,13 @@ namespace ScrumWin21WebAPI.BLL.Services
             throw new NotImplementedException();
         }
 
-        public bool ValidateEntity(UserEntity entity)
+        public (bool, UserEntity) ValidateEntity(UserEntity entity)
         {
-            throw new NotImplementedException();
+
+            if(string.IsNullOrEmpty(entity.Username) || string.IsNullOrEmpty(entity.Email) || entity.Security == null || entity.SecurityLayer == null)
+                return (false, entity);
+            
+            else return (true, entity);
         }
 
         public bool ValidateModel(UserModel modelToConvert)
