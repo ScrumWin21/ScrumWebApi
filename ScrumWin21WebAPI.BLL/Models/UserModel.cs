@@ -12,20 +12,20 @@ namespace ScrumWin21WebAPI.BLL.Models
         {
         }
 
-        public UserModel(string userName, string email)
+        public UserModel(string username, string email)
         {
-            UserName = userName;
+            Username = username;
             Email = email;
         }
 
-        public UserModel(string userName, string email, string password)
+        public UserModel(string username, string email, string password)
         {
-            UserName = userName;
+            Username = username;
             Email = email;
             Password = password;
         }
 
-        public string UserName { get; set; } = string.Empty;
+        public string Username { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
     }
