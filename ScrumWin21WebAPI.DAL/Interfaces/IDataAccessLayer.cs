@@ -9,7 +9,11 @@ namespace ScrumWin21WebAPI.DAL.Interfaces
 {
     public interface IDataAccessLayer
     {
+        #region Users
+
         Task<bool> CreateAsync(UserEntity newEntity);
         Task<IEnumerable<UserEntity>> GetAllAsync();
+
+        #endregion
     }
 }

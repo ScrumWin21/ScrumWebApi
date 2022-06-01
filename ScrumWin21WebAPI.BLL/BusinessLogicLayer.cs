@@ -1,4 +1,5 @@
-﻿using ScrumWin21WebAPI.BLL.Interfaces;
+﻿using Microsoft.AspNetCore.Mvc;
+using ScrumWin21WebAPI.BLL.Interfaces;
 using ScrumWin21WebAPI.BLL.Models;
 using ScrumWin21WebAPI.DAL;
 using ScrumWin21WebAPI.DAL.Data.Entities;
@@ -35,7 +36,7 @@ namespace ScrumWin21WebAPI.BLL
                     return ("That username is already taken.", newUserModel);
 
                 else if (entity.Email == newUserModel.Email)
-                    return ("That email is already taken.", newUserModel);
+                    return ("That email address is already taken.", newUserModel);
             }
 
             var success = _userService.ValidateEntity(_userService.ConvertToEntity(newUserModel));
@@ -50,7 +51,7 @@ namespace ScrumWin21WebAPI.BLL
                     return ("Could not save to database.", savedModel);
             }
             else
-                return ("The input was not correct.", newUserModel);
+                return ("The input was incorrect.", newUserModel);
         }
 
         #endregion

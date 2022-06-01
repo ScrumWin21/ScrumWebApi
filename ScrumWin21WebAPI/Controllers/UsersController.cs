@@ -34,10 +34,14 @@ namespace ScrumWin21WebAPI.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
-        public async Task<string> CreateUserAsync(UserModel newUser)
+        public async Task<IActionResult> CreateAsync(UserModel newUser)
         {
             var success = await _bll.CreateAsync(newUser);
-            return success.Item1;
+            if (success.Item1 == "")
+                return Created("User was created succesfully.", success.Item2);
+
+            else
+                return BadRequest($"{success.Item1}");
         }
 
         // PUT api/<UsersController>/5

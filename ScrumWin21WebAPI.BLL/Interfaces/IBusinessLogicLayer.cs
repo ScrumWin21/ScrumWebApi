@@ -9,6 +9,10 @@ namespace ScrumWin21WebAPI.BLL.Interfaces
 {
     public interface IBusinessLogicLayer
     {
+        #region Users
+
         Task<(string, UserModel)> CreateAsync(UserModel newUserModel);
+
+        #endregion
     }
 }

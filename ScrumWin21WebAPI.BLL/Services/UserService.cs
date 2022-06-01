@@ -30,6 +30,7 @@ namespace ScrumWin21WebAPI.BLL.Services
             {
                 Username = entity.Username,
                 Email = entity.Email,
+                Password = "-Unknown-"
             };
 
             return newModel;
