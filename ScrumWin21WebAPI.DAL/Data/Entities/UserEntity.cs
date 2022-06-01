@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ScrumWin21WebAPI.DAL.Data.Entities
 {
-    [Index(nameof(Email), nameof(UserName), IsUnique = true)]
+    [Index(nameof(Email), nameof(Username), IsUnique = true)]
     public class UserEntity
     {
         [Key]
@@ -18,7 +18,7 @@ namespace ScrumWin21WebAPI.DAL.Data.Entities
 
         [Required]
         [Column(TypeName = "nvarchar(50)")]
-        public string UserName { get; set; } = null!;
+        public string Username { get; set; } = null!;
 
         [Required]
         [Column(TypeName = "varchar(100)")]
