@@ -10,10 +10,10 @@ namespace ScrumWin21WebAPI.BLL.Interfaces
 {
     public interface IUserService
     {
-        public bool ValidateModel(UserDisplayModel modelToConvert);
+        public bool ValidateModel(UserModel modelToConvert);
         public bool ValidateEntity(UserEntity convertedEntity);
-        public UserEntity ConvertToEntity(UserDisplayModel model);
-        public UserDisplayModel ConvertToModel(UserEntity entity);
-        public List<UserDisplayModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList);
+        public UserEntity ConvertToEntity(UserModel model);
+        public UserModel ConvertToModel(UserEntity entity);
+        public List<UserModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList);
     }
 }

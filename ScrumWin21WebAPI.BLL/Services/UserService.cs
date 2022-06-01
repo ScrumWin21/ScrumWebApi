@@ -11,17 +11,17 @@ namespace ScrumWin21WebAPI.BLL.Services
 {
     public class UserService : IUserService
     {
-        public UserEntity ConvertToEntity(UserDisplayModel model)
+        public UserEntity ConvertToEntity(UserModel model)
         {
             throw new NotImplementedException();
         }
 
-        public UserDisplayModel ConvertToModel(UserEntity entity)
+        public UserModel ConvertToModel(UserEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public List<UserDisplayModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList)
+        public List<UserModel> ConvertToModelList(IEnumerable<UserEntity> entitiesList)
         {
             throw new NotImplementedException();
         }
@@ -31,7 +31,7 @@ namespace ScrumWin21WebAPI.BLL.Services
             throw new NotImplementedException();
         }
 
-        public bool ValidateModel(UserDisplayModel modelToConvert)
+        public bool ValidateModel(UserModel modelToConvert)
         {
             throw new NotImplementedException();
         }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ScrumWin21WebAPI.DAL.Data;
 using ScrumWin21WebAPI.DAL.Data.Entities;
+using ScrumWin21WebAPI.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,12 +10,6 @@ using System.Threading.Tasks;
 
 namespace ScrumWin21WebAPI.DAL
 {
-    public interface IDataAccessLayer
-    {
-        #region Users
-
-        #endregion
-    }
     public class DataAccessLayer : IDataAccessLayer
     {
         private readonly SqlContext _context;
@@ -24,7 +19,15 @@ namespace ScrumWin21WebAPI.DAL
         }
 
         #region Users
+        public async Task<bool> CreateAsync(UserEntity newEntity)
+        {
+            var addedEntity = await _context.AddAsync(newEntity);
+            var success = await _context.SaveChangesAsync();
+            if (success > 0 && addedEntity != null)
+                return true;
 
+            else return false;
+        }
         #endregion
     }
 }

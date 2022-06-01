@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScrumWin21WebAPI.BLL.Models
+namespace ScrumWin21WebAPI.BLL.Interfaces
 {
-    public class UserDisplayModel
+    public interface IBusinessLogicLayer
     {
     }
 }

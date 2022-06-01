@@ -4,6 +4,7 @@ using ScrumWin21WebAPI.BLL.Interfaces;
 using ScrumWin21WebAPI.BLL.Services;
 using ScrumWin21WebAPI.DAL;
 using ScrumWin21WebAPI.DAL.Data;
+using ScrumWin21WebAPI.DAL.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,8 +13,8 @@ builder.Services.AddDbContext<SqlContext>(x => x.UseSqlServer(builder.Configurat
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddScoped<BusinessLogicLayer>();
-builder.Services.AddScoped<DataAccessLayer>();
+builder.Services.AddScoped<IBusinessLogicLayer, BusinessLogicLayer>();
+builder.Services.AddScoped<IDataAccessLayer, DataAccessLayer>();
 
 
 builder.Services.AddControllers();
