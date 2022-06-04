@@ -29,6 +29,9 @@ namespace ScrumWin21WebAPI.BLL
         #region Users
         public async Task<(string, UserModel)> CreateAsync(UserModel newUserModel)
         {
+            if (!_userService.ValidateModel(newUserModel))
+                return ("The input was incorrect.", newUserModel);
+
             var entityList = await _dal.GetAllAsync();
             foreach(var entity in entityList)
             {

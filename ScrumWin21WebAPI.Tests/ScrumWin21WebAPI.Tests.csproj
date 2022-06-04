@@ -20,4 +20,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ScrumWin21WebAPI.BLL\ScrumWin21WebAPI.BLL.csproj" />
+    <ProjectReference Include="..\ScrumWin21WebAPI.DAL\ScrumWin21WebAPI.DAL.csproj" />
+    <ProjectReference Include="..\ScrumWin21WebAPI\ScrumWin21WebAPI.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -18,8 +18,7 @@ namespace ScrumWin21WebAPI.BLL.Services
                 Username = model.Username,
                 Email = model.Email,
             };
-            if(!string.IsNullOrEmpty(model.Password))
-                newEntity.EncryptPassword(model.Password);
+            newEntity.EncryptPassword(model.Password);
 
             return newEntity;
         }
@@ -50,9 +49,13 @@ namespace ScrumWin21WebAPI.BLL.Services
             else return (true, entity);
         }
 
-        public bool ValidateModel(UserModel modelToConvert)
+        public bool ValidateModel(UserModel model)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrEmpty(model.Username) || string.IsNullOrEmpty(model.Email) || string.IsNullOrEmpty(model.Password))
+                return false;
+
+            else 
+                return true;
         }
     }
 }
